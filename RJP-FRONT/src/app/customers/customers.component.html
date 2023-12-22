@@ -1,0 +1,24 @@
+<h1>Customers</h1>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td width="35%">{{ customer.name }}</td>
+      <td width="35%">{{ customer.surname }}</td>
+      <td class="" width="30%">
+        <button class="btn btn-primary me-3" [routerLink]="detailsRoute.replace(':id',customer.id.toString())" >View Details</button>
+        <button class="btn btn-success" (click)="openModal(customer.id, template)">Open Account</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #template>
+    <app-open-account-form [customerId]="selectedCustomerId" [modalRef]="modalRef"></app-open-account-form>
+</ng-template>

@@ -1,0 +1,17 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="customerId">Customer ID</label>
+            <input type="text" [formControl]="form.controls.customerId" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label for="initialCredit">Initial Credit</label>
+            <input type="number" [formControl]="form.controls.initialCredit" required  class="form-control">
+        </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>

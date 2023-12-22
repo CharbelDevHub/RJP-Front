@@ -1,0 +1,40 @@
+<h1 class="mt-5">Customer Details</h1>
+
+<table class="table mt-5">
+  <thead>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Balance</th>
+    <th>Transactions</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {{ details.name }}
+      </td>
+      <td>
+        {{ details.surname }}
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let account of details.accounts">
+            Account {{ account.id }}: {{ account.amount }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let account of details.accounts">
+            Account: {{ account.id }}
+            <ul>
+              <li *ngFor="let transaction of account.transactions">
+                {{ transaction.amount }} -
+                {{ transaction.date | date:'yyyy/MM/dd' }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
